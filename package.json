@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/joinmouse/CloudMusic/issues"
   },
-  "homepage": "https://github.com/joinmouse/CloudMusic#readme"
+  "homepage": "https://github.com/joinmouse/CloudMusic#readme",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
 }
