@@ -1,0 +1,25 @@
+/*red: #D43C33 */
+
+section.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #D43C33;
+  padding: 17px 10px;
+}
+section.topbar .logo>svg {
+  width: 140px;
+  height: 25px;
+  vertical-align: top;
+}
+section.topbar > a {
+  color: white;
+  display: inline-block;
+  border: 1px solid;
+  font-size: 15px;
+  padding: 4px 10px;
+  line-height: 20px;
+  border-radius: 15px; 
+}
+
+section.globalTops {}
