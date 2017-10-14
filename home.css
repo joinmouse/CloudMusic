@@ -23,3 +23,34 @@ section.topbar > a {
 }
 
 section.globalTops {}
+
+
+.tabs {
+  display: flex
+}
+.tabs > li {
+  width: 33.3333%;
+  text-align: center;
+  line-height: 20px;
+  padding: 10px 0;
+}
+.tabs > li.active {
+  color: #D43C33;
+  position: relative;
+}
+.tabs > li.active::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  background: #D43C33;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.tab-content > li {
+  display: none;
+}
+.tab-content > li.active {
+  display: block;
+}
