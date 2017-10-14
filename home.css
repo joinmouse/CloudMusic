@@ -1,4 +1,5 @@
 /*red: #D43C33 */
+/*grep: #888 */
 
 section.topbar {
   display: flex;
@@ -53,4 +54,61 @@ section.globalTops {}
 }
 .tab-content > li.active {
   display: block;
+}
+
+section.songs > .list > li {
+  position: relative;
+  padding-left: 10px;
+  padding-bottom: 6px;
+  padding-top: 5px;
+  border-bottom: 1px solid #E2E2E3;
+}
+
+section.songs > .list .playButton {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%)
+}
+
+section.songs > .list > li > p {
+  font-size: 12px;
+  color: #888;
+}
+
+section.songs > .list .icon-play {
+  width: 22px;
+  height: 22px;
+  vertical-align: middle;
+  fill: #aaa;
+}
+section.songs > .list .icon-sq {
+  fill: #D43C33;
+}
+
+section.ad {
+  background: url(//i.loli.net/2017/10/14/59e221400a75e.png) no-repeat center;
+  background-size: cover;
+  padding-top: 30px;
+  text-align: center;
+}
+section.ad > svg {
+  width: 230px;
+  height: 44px;
+}
+section.ad .link-wrapper > a {
+  display: inline-block;
+  border: 1px solid;
+  line-height: 40px;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 0 26px;
+  border-radius: 20px;
+  color: #D43C33;
+}
+
+section.ad .copyright {
+  font-size: 12px;
+  color: #888;
 }
