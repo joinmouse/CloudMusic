@@ -24,31 +24,7 @@
     <li class="active">
       <section class="playlists">
             <h2>推荐歌单</h2>
-            <ol class="songs">
-              <li>
-                <div class="cover"></div>
-                <p>两行文字两行文字两行文字两行文字<</p>
-              </li>
-              <li>
-                <div class="cover"></div>
-                <p>两行文字两行文字两行文字两行文字</p>
-              </li>
-              <li>
-                <div class="cover"></div>
-                <p>两行文字两行文字两行文字两行文字</p>
-              </li>
-              <li>
-                <div class="cover"></div>
-                <p>两行文字两行文字两行文字两行文字</p>
-              </li>
-              <li>
-                <div class="cover"></div>
-                <p>两行文字两行文字两行文字两行文字</p>
-              </li>
-              <li>
-                <div class="cover"></div>
-                <p>两行文字两行文字两行文字两行文字</p>
-              </li>
+            <ol class="songs" id="songs">    
             </ol>
       </section>
       <section class="songs">
@@ -177,6 +153,7 @@
   
   <script src="//at.alicdn.com/t/font_441578_36i9ra4j01gojemi.js"></script>
   <script src="./vendors/jquery.min.js"></script>
+  <script src="./vendors/av-min.js"></script>
   <script>
     $('.tabs').on('click', 'li', function(e){
        let $li = $(e.currentTarget)
@@ -185,6 +162,31 @@
        $('.tab-content').children().eq(index)
          .addClass('active').siblings().removeClass('active')
      })
+  </script>
+  <script>
+    var APP_ID = 'jqinG0cWa2tTaePOFRA5w8wB-gzGzoHsz';
+    var APP_KEY = '7bMFaUbmQ2o16ViJNMhPaOYG';
+
+    AV.init({
+      appId: APP_ID,
+      appKey: APP_KEY
+    }); 
+
+    let $olSongs = $('ol#songs')
+    var query = new AV.Query('Songs')
+    query.find().then(function (results) {
+      for(var i=0; i<results.length; i++){
+        console.log(results[i].attributes)
+        let songs = results[i].attributes
+        let li = `<li>
+                    <h3>${songs.name}</h3>
+                    <div class="cover">${songs.singer}</div>
+                  </li>`
+        $olSongs.append(li)
+      }
+    }, function (error) {
+      alert('获取歌曲失败')
+    });
   </script>
 </body>
 </html>
