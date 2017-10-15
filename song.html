@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>播放</title>
+  <link rel="stylesheet" href="./reset.css">
+  <style>
+    .page {
+      height: 100vh;
+      position: relative;
+    }
+    .page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: transparent url(//i.loli.net/2017/10/15/59e2dfc20b022.png) no-repeat center;
+      background-size: cover;
+      filter: blur(50px) brightness(0.5);
+      z-index: -1;
+    }
+    section.pointer{}
+    section.disk {
+      margin-top: 20px;
+    }
+    section.disk > .circle {
+      width: 248px;
+      height: 248px;
+      border: 1px solid red;
+      margin: 0 auto;
+      position: relative;
+    }
+    section.disk > .circle::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent url(//i.loli.net/2017/10/15/59e2e58ea046d.png) no-repeat center;
+      background-size: cover;
+    }
+    section.disk > .circle::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent url(//i.loli.net/2017/10/15/59e2ff48735ae.png) no-repeat center;
+      background-size: cover;
+      transform: rotateZ(50deg);
+      transition: transform 1s
+    }
+    section.disk > .circle > img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -75px;
+      margin-left: -75px;
+      border-radius: 50%;
+    }
+    section.disk > .circle.playing > img,
+    section.disk > .circle.playing::after {
+      animation: spin 10s linear infinite;
+    }
+    section.disk > .circle.playing.pause > img,
+    section.disk > .circle.playing.pause::after {
+      animation-play-state: paused;
+    }
+
+    @keyframes spin {
+      0%{
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    section.lyric{}
+    section.actions{}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="pointer"></section>
+    <section class="disk">
+      <div class="circle playing pause">
+        <img src="//i.loli.net/2017/10/15/59e2dfc20b022.png" width=150px height=150px alt="封面">
+      </div>
+    </section>
+    <section class="lyric"></section>
+    <section class="actions"></section>
+  </div>
+</body>
+</html>
