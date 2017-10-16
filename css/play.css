@@ -1,0 +1,224 @@
+html {
+  font-size: 1rem;
+}
+
+html,
+body{
+  height: 100%;  
+}
+#app {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.song-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: no-repeat center/cover;
+  transform: scale(1.5);
+  transform-origin: center top;
+  z-index: -2;
+}
+
+
+/*背景蒙层*/
+
+.song-bg:after {
+  content: '';
+  display: block;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.song-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.song-wrap .needle {
+  position: absolute;
+  left: 46%;
+  top: 0;
+  height: 6.85rem;
+  width: 4.8rem;
+  background: url('//owf5g9dnv.bkt.clouddn.com/needle-ip6.png') no-repeat center/contain;
+  z-index: 5;
+  transform: rotateZ(-19deg);
+  transform-origin: 0% -15%;
+  transition: 0.5s
+}
+.song-wrap .needle.active{
+  transform: rotateZ(0);
+}
+.song-wrap .disc-container{
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.song-wrap .disc {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 14.8rem;
+  background: url('//owf5g9dnv.bkt.clouddn.com/disc-ip6.png') no-repeat center/contain;
+  z-index: 4;
+  position: relative;
+  animation: 20s linear turn infinite;
+  animation-play-state:paused;
+}
+
+.disc:after {
+  content: '';
+  display: block;
+  height: 14.8rem;
+  width: 14.8rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background: url('//owf5g9dnv.bkt.clouddn.com/disc_light-ip6.png') no-repeat center/contain;
+}
+
+.disc.playing{
+  animation-play-state:running;  
+}
+.disc.paused{
+  animation-play-state:paused;
+}
+
+@keyframes turn{
+  0% {transform: rotate(0)}
+  100% {transform: rotate(360deg)}
+}
+
+.disc .default-cover,
+.disc .cover {
+  width: 9.2rem;
+  height: 9.2rem;
+  border-radius: 50%;
+  background: url('//owf5g9dnv.bkt.clouddn.com/disc_default.png') no-repeat center/contain;
+}
+
+.disc .cover {
+  /* background: url('//s3.music.126.net/m/s/img/disc_default.png?7c9b3adc16f5485c2bfbe8a540534188') no-repeat center/contain; */
+}
+
+.disc-container .play-btn,
+.disc .pause-btn{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 6;
+  height: 2.8rem;
+  width: 2.8rem;
+  fill:#fff;
+  background: rgba(204,204,204,0.3);
+  border-radius: 50%;
+}
+.disc .pause-btn,
+.disc.playing+.play-btn{
+  display: none;
+}
+.disc+.play-btn,
+.disc.playing .pause-btn{
+  display: block;
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  color: #fff;
+  margin-top: 1.25rem;
+  font-weight: 400;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.song-info .song-name {
+  font-size: 0.9rem;
+}
+
+.song-info .song-name+span {
+  margin: 0 0.2rem;
+}
+
+.song-info .song-author {
+  font-size: 0.8rem;
+  color: hsla(0, 0%, 100%, .6);
+}
+
+.lrc-wrap {
+  overflow: hidden;
+  margin-top: 0.7rem;
+  height: 4.6rem;
+  font-size: 0.8rem;
+}
+.lrc-wrap .lrc{
+  transition: 0.3s;
+}
+
+.lrc-wrap .lrc-line {
+  font-size: 0.8rem;
+  min-height: 0.95rem;
+  margin-bottom: 0.3rem;
+  color: hsla(0, 0%, 100%, .6);  
+}
+
+.lrc-wrap .lrc-line.active {
+  color: #fff;
+}
+
+.lrc-wrap .lrc-line .origin-lrc-line{
+  display: block;
+  line-height: 1.2;
+}
+.lrc-wrap .lrc-line .translate-lrc-line{
+  display: block;
+  line-height: 1.5
+}
+
+.play-footer{
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+  padding: 0 2.1rem;
+  /* position: absolute;
+  left: 0;
+  right:0;
+  bottom: 1rem;
+  */
+}
+.play-footer>a{
+  height: 2.1rem;
+  flex-grow: 1;
+  line-height: 2.1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  border-radius: 4px;  
+}
+.play-footer .open-app-btn{
+  border:1px solid #d43b32;
+  background-color: transparent;
+  color:#d43b32;
+}
+.play-footer .download-app-btn{
+  margin-left: 0.6rem;
+  border:1px solid #d43b32;
+  background-color: #d43b32;
+  color:#fff;
+}

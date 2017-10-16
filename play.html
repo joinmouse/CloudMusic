@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>播放</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/play.css">
+</head>
+<body>
+  <body>
+    <div id="app">
+      <div class="song-bg"></div>
+      <div class="song-wrap">
+        <div class="needle"></div>
+        <div class="disc-container">
+          <div class="disc">
+            <div class="default-cover">
+            <!-- <img class="cover" src="" alt=""> -->
+            </div>
+            <svg class="pause-btn icon" aria-hidden="true">
+              <use xlink:href="#icon-pause"></use>
+            </svg>
+          </div>
+          <svg class="play-btn icon" aria-hidden="true">
+            <use xlink:href="#icon-play"></use>
+          </svg>
+        </div>
+      </div>
+      <div class="song-info">
+        <!--歌手，专辑-->
+        <div class="lrc-wrap">
+          <!--歌词-->
+        </div>
+      </div>
+      <div class="play-footer">
+        <a href="./download.html" class="open-app-btn">打开</a>
+        <a href="#" class="download-app-btn">下 载</a>
+      </div>
+    </div>
+    
+  <script>
+    var dpr = window.devicePixelRatio
+    var width = document.documentElement.clientWidth
+    document.querySelector('html').style.fontSize = (width/18.6)+'px'
+  </script>
+  <script src="//at.alicdn.com/t/font_418363_10tzo7wvp7ujtt9.js"></script>
+  <script src="./vendors/jquery.min.js"></script>
+  <script src="./js/play.js"></script>
+</body>
+</html>
