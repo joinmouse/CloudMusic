@@ -1,0 +1,33 @@
+html,body {
+  height: 100%;
+}
+.download-page {
+  height: 100%;
+  background: url('http://owf5g9dnv.bkt.clouddn.com/download-bg.jpg') center/contain;
+  padding-top: 0.8rem;
+  position: relative;
+}
+.download-page .download {
+  margin-top: -2rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%)
+}
+.download .logo {
+  margin: 0 auto;
+  display: block;
+  width: 6rem;
+}
+.download-button {
+  display: block;
+  width: 10rem;
+  margin: 2rem auto 0;
+  background: #311412;
+  border: 1px solid #7c6a69;
+  border-radius: 0.2rem;
+  text-align: center;
+  line-height: 2.5rem;
+  font-size: 1.2rem;
+  color: #fff;
+}
